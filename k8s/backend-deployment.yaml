@@ -1,0 +1,26 @@
+# k8s/backend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: default
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: ronaldosssantos1/devops-test-questionnaire1:Backend
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MONGO_URL
+          value: "mongodb://mongodb-service:27017/database"
