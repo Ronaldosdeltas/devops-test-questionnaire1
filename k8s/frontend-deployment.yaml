@@ -1,23 +1,21 @@
-# k8s/frontend-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
-  namespace: default
+  name: questionnaire-task1-frontend
   labels:
-    app: frontend
+    app: questionnaire-task1-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: questionnaire-task1-frontend
   template:
     metadata:
       labels:
-        app: frontend
+        app: questionnaire-task1-frontend
     spec:
       containers:
       - name: frontend
-        image: ronaldosssantos1/devops-test-questionnaire1:frontend
+        image: ronaldosssantos1/questionnaire-task1-frontend:latest
         ports:
         - containerPort: 80

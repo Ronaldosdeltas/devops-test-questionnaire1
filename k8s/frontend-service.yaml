@@ -1,13 +1,12 @@
-# k8s/frontend-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
-  namespace: default
+  name: questionnaire-task1-frontend-service
 spec:
   selector:
-    app: frontend
+    app: questionnaire-task1-frontend
   ports:
-  - port: 80
+  - protocol: TCP
+    port: 80
     targetPort: 80
-  type: ClusterIP
+  type: LoadBalancer

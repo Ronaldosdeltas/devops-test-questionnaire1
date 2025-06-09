@@ -1,13 +1,12 @@
-# k8s/backend-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-service
-  namespace: default
+  name: questionnaire-task1-backend-service
 spec:
   selector:
-    app: backend
+    app: questionnaire-task1-backend
   ports:
-  - port: 3000
+  - protocol: TCP
+    port: 3000
     targetPort: 3000
-  type: ClusterIP
+  type: LoadBalancer
